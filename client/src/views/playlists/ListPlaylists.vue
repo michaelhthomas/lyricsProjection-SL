@@ -4,7 +4,7 @@
       <!-- Card header -->
       <v-card class="mx-auto" max-width="600">
         <v-card-title class="white--text secondary">
-          Seznami predvajanj
+          {{ $t('playlistsName') }}
           <v-spacer></v-spacer>
           <v-btn @click="newPlaylist" color="tercinary" class="text--primary" fab small>
             <v-icon>mdi-plus</v-icon>
@@ -14,8 +14,8 @@
         <v-divider></v-divider>
 
         <v-card-text>
-          Dodaj pesmi v nov seznam, ali posodobi obstoječega.
-          <v-text-field v-model="search" label="Išči" @click="page = 1" append-icon="mdi-magnify"></v-text-field>
+          {{ $t('playlistsHelpText') }}
+          <v-text-field v-model="search" :label="$t('search')" @click="page = 1" append-icon="mdi-magnify"></v-text-field>
         </v-card-text>
 
         <v-divider></v-divider>
@@ -75,7 +75,7 @@
                     outlined
                     color="primary"
                   >
-                    <v-icon>mdi-lead-pencil</v-icon>Uredi
+                    <v-icon>mdi-lead-pencil</v-icon>{{ $t('popup.edit') }}
                   </v-btn>
                 </v-col>
                 <v-col cols="6" align="center">
@@ -84,14 +84,14 @@
                   small
                   outlined
                   color="primary">
-                    <v-icon>mdi-cast</v-icon>Projeciraj
+                    <v-icon>mdi-cast</v-icon>{{ $t('popup.project') }}
                   </v-btn>
                 </v-col>
               </v-row>
             </v-container>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn @click="showPopUp = false" color="primary" text>Prekliči</v-btn>
+              <v-btn @click="showPopUp = false" color="primary" text>{{ $t('dialog.cancel') }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -101,19 +101,38 @@
     <div class="deleteDialog">
       <!-- Show delete dialog -->
       <v-overlay :value="deleteDialog">
-        <h1>Si prepričan/a?</h1>
+        <h1>{{ $t('delete.confirm') }}</h1>
         <br />
         <v-btn @click="deleteDialog = false"
           color="primary"
           class="mx-3">
-          Prekliči</v-btn>
+          {{ $t('dialog.cancel') }}</v-btn>
         <v-btn @click="deletePlaylist" color="primary" class="mx-3">
-          Da<v-icon>mdi-delete</v-icon>
+          {{ $t('dialog.yes') }}<v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-overlay>
     </div>
   </v-container>
 </template>
+
+<i18n>
+en:
+  playlistsName: "Playlists"
+  playlistsHelpText: "Add songs to a new playlist, or update an existing one."
+  popup:
+    edit: "Edit"
+    project: "Project"
+  delete:
+    confirm: "Are you sure?"
+sl:
+  playlistsName: "Seznami predvajanj"
+  playlistsHelpText: "Dodaj pesmi v nov seznam, ali posodobi obstoječega."
+  popup:
+    edit: "Uredi"
+    project: "Projeciraj"
+  delete:
+    confirm: "Si prepričan/a?"
+</i18n>
 
 <script>
 import { mapGetters } from 'vuex'

@@ -19,7 +19,7 @@
 
              <v-card>
                <v-card-title class="headline">
-                 <h5>Dodaj pesem v seznam</h5>
+                 <h5>{{ $t('songHeadline') }}</h5>
                </v-card-title>
 
                 <!-- List lyrics -->
@@ -29,7 +29,7 @@
                   <v-card-text>
                     <v-text-field
                     v-model="search"
-                    label="Išči"
+                    :label="$t('search')"
                     @click="page = 1"
                     color="indigo"
                     prepend-inner-icon="mdi-magnify"></v-text-field>
@@ -67,7 +67,7 @@
                    color="indigo"
                    text
                    @click="dialog = false"
-                 >Zapri</v-btn>
+                 >{{ $t('dialog.close') }}</v-btn>
                </v-card-actions>
              </v-card>
            </v-dialog>
@@ -82,7 +82,7 @@
            </template>
            <v-list>
              <v-list-item @click="sheet = true">
-              <v-list-item-title>Spremeni ime</v-list-item-title>
+              <v-list-item-title>{{ $t('rename') }}</v-list-item-title>
              </v-list-item>
            </v-list>
          </v-menu>
@@ -95,7 +95,7 @@
                 </v-btn>
               </div>
             </template>
-            <span>Shrani</span>
+            <span>{{ $t('save') }}</span>
           </v-tooltip>
 
        </v-toolbar>
@@ -129,13 +129,13 @@
             text
             color="green"
             @click="sheet = !sheet"
-          >Zaključi</v-btn>
+          >{{ $t('dialog.done') }}</v-btn>
           <v-container fluid>
             <v-row>
               <v-col align="center">
                 <v-text-field
                 v-model="playlistName"
-                label="Naslov seznama"
+                :label="$t('playlistName')"
                 color="indigo"
                 ></v-text-field>
               </v-col>
@@ -146,6 +146,19 @@
     </div>
   </div>
 </template>
+
+<i18n>
+en:
+  newPlaylist: 'New Playlist'
+  playlistName: 'Playlist name'
+  playlistsHelpText: 'Add songs to a new playlist, or update an existing one.'
+  songHeadline: 'Select a song to add to this playlist'
+sl:
+  newPlaylist: 'Nov seznam'
+  playlistName: 'Naslov seznama'
+  playlistsHelpText: 'Dodaj pesmi v nov seznam, ali posodobi obstoječega.'
+  songHeadline: 'Dodaj pesem v seznam'
+</i18n>
 
 <script>
 import { mapGetters } from 'vuex'
@@ -263,7 +276,7 @@ export default {
   mounted () {
     if (this.id === 'new') {
       this.selectedIndexes = []
-      this.playlistName = 'Nov seznam'
+      this.playlistName = this.$t('newPlaylist')
       this.sheet = true
     } else {
       setTimeout(() => {
