@@ -12,12 +12,12 @@
       <v-col align="center" cols=12 sm=6>
         <v-btn
         :to="{ name: 'ListLyrics'}"
-        color="primary">Seznam pesmi <v-icon>mdi-playlist-music</v-icon></v-btn>
+        color="primary">{{ $t('songList') }} <v-icon>mdi-playlist-music</v-icon></v-btn>
       </v-col>
       <v-col align="center" cols=12 sm=6>
         <v-btn
         :to="{name: 'AddLyric'}"
-        color="primary">Dodaj novo pesem <v-icon>mdi-music</v-icon></v-btn>
+        color="primary">{{ $t('addSong') }} <v-icon>mdi-music</v-icon></v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -25,11 +25,22 @@
         <v-btn
         :to="{name: 'Remote'}"
         color="#59A96A"
-        large>Upravljaj <v-icon>mdi-remote</v-icon></v-btn>
+        large>{{ $t('remote') }} <v-icon>mdi-remote</v-icon></v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<i18n>
+en:
+  songList: Song Queue
+  addSong: New Song
+  remote: Remote
+sl:
+  songList: Seznam pesmi
+  addSong: Dodaj novo pesem
+  remote: Upravljaj
+</i18n>
 
 <script>
 export default {
