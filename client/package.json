@@ -15,14 +15,17 @@
     "tiptap": "^1.29.3",
     "tiptap-extensions": "^1.31.3",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.22.0",
     "vue-offline": "^2.0.8",
     "vue-router": "^3.2.0",
     "vue-socket.io-extended": "^4.0.4",
     "vuedraggable": "^2.24.1",
     "vuetify": "^2.2.11",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "yaml-loader": "^0.6.0"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.5.0",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-plugin-router": "~4.4.0",
