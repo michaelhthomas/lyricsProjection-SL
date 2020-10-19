@@ -8,22 +8,31 @@
     <v-container fluid>
       <v-row class="fill-height">
         <v-col align="center" justify="center">
-          <p class="font-weight-light">Te strani ni mogoče najti</p>
+          <p class="font-weight-light">{{ $t('notFound') }}</p>
         </v-col>
       </v-row>
       <v-row class="fill-height">
         <v-col align="center" justify="center">
-          <v-btn text :to="{ name: 'Home' }" color="primary">Domov</v-btn>
+          <v-btn text :to="{ name: 'Home' }" color="primary">{{ $t('nav.home') }}</v-btn>
         </v-col>
       </v-row>
     </v-container>
   </div>
 </template>
+
+<i18n>
+en:
+  notFound: "This page could not be found"
+sl:
+  notFound: "Te strani ni mogoče najti"
+</i18n>
+
 <script>
 export default {
   name: 'NotFound'
 }
 </script>
+
 <style>
 .error-container {
   text-align: center;
