@@ -1,0 +1,22 @@
+---
+appName: "Church Projection"
+nav: 
+  home: "Home"
+  playlists: "Playlists"
+  newSong: "Add lyrics"
+  songs: "View lyrics"
+  options: "Options"
+  remote: "Remote"
+dialog:
+  cancel: "Cancel"
+  yes: "Yes"
+  done: "Done"
+  close: "Close"
+search: "Search"
+save: "Save"
+rename: "Rename"
+choose: "Choose"
+
+playlist: 
+  addSuccessful: "New playlist successfully added"
+  addFailed: "Error saving playlist!"

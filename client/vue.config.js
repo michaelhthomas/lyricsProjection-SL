@@ -15,10 +15,12 @@ module.exports = {
         .end();
       config.module
         .rule("yaml")
-        .test(/\.ya?ml$/)
-        .type("json")
-        .use("yaml-loader")
-          .loader('yaml-loader')
-        .end();
+          .test(/\.ya?ml$/)
+          .use('json-loader')
+            .loader('json-loader')
+          .end()
+          .use("yaml-loader")
+            .loader('yaml-loader')
+          .end();
   }
 }

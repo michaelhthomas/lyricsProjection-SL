@@ -1,0 +1,22 @@
+---
+appName: "Cerkvena projekcija"
+nav: 
+  home: "Domov"
+  playlists: "Seznami predvajanj"
+  newSong: "Dodaj novo pesem"
+  songs: "Seznam pesmi"
+  options: "Možnosti"
+  remote: "Upravljaj"
+dialog:
+  cancel: "Prekliči"
+  yes: "Da"
+  done: "Zaključi"
+  close: "Zapri"
+search: "Išči"
+save: "Shrani"
+rename: "Spremeni ime"
+choose: "Izberi"
+
+playlist:
+  addSuccessful: "Uspešno dodan nov seznam predvajanj"
+  addFailed: "Napaka pri shranjevanju seznama predvajanj!"
