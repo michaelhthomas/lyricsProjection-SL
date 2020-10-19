@@ -7,7 +7,7 @@
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Domov</v-list-item-title>
+            <v-list-item-title>{{ $t('nav.home') }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -16,7 +16,7 @@
             <v-icon>mdi-presentation-play</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Seznami predvajanj</v-list-item-title>
+            <v-list-item-title>{{ $t('nav.playlists') }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -25,7 +25,7 @@
             <v-icon>mdi-music</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Dodaj novo pesem</v-list-item-title>
+            <v-list-item-title>{{ $t('nav.newSong') }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -34,7 +34,7 @@
             <v-icon>mdi-playlist-music</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Seznam pesmi</v-list-item-title>
+            <v-list-item-title>{{ $t('nav.songs') }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -43,7 +43,7 @@
             <v-icon>mdi-cog</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Možnosti</v-list-item-title>
+            <v-list-item-title>{{ $t('nav.options') }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
@@ -52,7 +52,7 @@
             <v-icon>mdi-remote</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Upravljaj</v-list-item-title>
+            <v-list-item-title>{{ $t('nav.remote') }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
