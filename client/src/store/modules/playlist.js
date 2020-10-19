@@ -1,4 +1,5 @@
 import playlistsApi from '../../services/playlistsApi'
+import i18n from '../../i18n'
 
 export const namespaced = true
 
@@ -43,7 +44,7 @@ export const actions = {
       .then(response => {
         commit('add_new_playlist', playlist)
         const alert = {
-          message: 'Uspešno dodan nov seznam predvajanj',
+          message: i18n.t('playlist.addSuccessful'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -51,7 +52,7 @@ export const actions = {
       })
       .catch(error => {
         const alert = {
-          message: 'Napaka pri shranjevanju seznama predvajanj!',
+          message: i18n.t('playlist.addFailed'),
           type: 'error'
         }
         dispatch('appState/showAlert', alert, { root: true })
