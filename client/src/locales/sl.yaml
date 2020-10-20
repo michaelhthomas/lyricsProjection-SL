@@ -17,6 +17,24 @@ save: "Shrani"
 rename: "Spremeni ime"
 choose: "Izberi"
 
-playlist:
-  addSuccessful: "Uspešno dodan nov seznam predvajanj"
-  addFailed: "Napaka pri shranjevanju seznama predvajanj!"
+# Translations for Vuex Store error messages
+playlistStore:
+  addSuccess: "Uspešno dodan nov seznam predvajanj"
+  addFail: "Napaka pri shranjevanju seznama predvajanj!"
+  deleteSuccess: "Uspešno izbrisan seznam predvajanj"
+  deleteFail: "Napaka pri brisanju seznama!"
+  updateSuccess: "Seznam uspešno posodobljen"
+  updateFail: "Napaka med posodabljanjem seznama!"
+lyricStore:
+  addSuccess: "Uspešno dodana pesem"
+  addFail: "Napaka pri shranjevanju nove pesmi!"
+  deleteSuccess: "Pesem uspešno izbrisana"
+  deleteFail: "Napaka pri brisanju pesmi!"
+  updateSuccess: "Pesem uspešno posodobljena"
+  updateFail: "Napaka med posodabljanjem pesmi!"
+  category: 
+    addSuccess: "Uspešno dodana nova kategorija"
+    addFail: "Napaka pri shranjevanju nove kategorije!"
+    deleteSuccess: "Kategorija uspešno izbrisana"
+    deleteFail: "Napaka pri brisanju kategorije!"
+    deleteFailDB: "Napaka pri brisanju kategorije iz baze!"

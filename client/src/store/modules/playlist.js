@@ -44,7 +44,7 @@ export const actions = {
       .then(response => {
         commit('add_new_playlist', playlist)
         const alert = {
-          message: i18n.t('playlist.addSuccessful'),
+          message: i18n.t('playlistStore.addSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -52,7 +52,7 @@ export const actions = {
       })
       .catch(error => {
         const alert = {
-          message: i18n.t('playlist.addFailed'),
+          message: i18n.t('playlistStore.addFail'),
           type: 'error'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -86,7 +86,7 @@ export const actions = {
     const toDelete = state.playlists.indexOf(foundPlaylist)
     if (toDelete === -1) {
       const alert = {
-        message: 'Napaka pri brisanju seznama!',
+        message: i18n.t('playlistStore.deleteFail'),
         type: 'error'
       }
       dispatch('appState/showAlert', alert, { root: true })
@@ -96,7 +96,7 @@ export const actions = {
       commit('delete_playlist', toDelete)
       if (response.status === 200) {
         const alert = {
-          message: 'Uspešno izbrisan seznam predvajanj',
+          message: i18n.t('playlistStore.deleteSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -112,7 +112,7 @@ export const actions = {
     const toUpdate = state.playlists.indexOf(foundPlaylist)
     if (toUpdate === -1) {
       const alert = {
-        message: 'Napaka med posodabljanjem seznama!',
+        message: i18n.t('playlistStore.updateFail'),
         type: 'error'
       }
       dispatch('appState/showAlert', alert, { root: true })
@@ -125,7 +125,7 @@ export const actions = {
       })
       if (response.status === 200) {
         const alert = {
-          message: 'Seznam uspešno posodobljen',
+          message: i18n.t('playlistStore.updateSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
