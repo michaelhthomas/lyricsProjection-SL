@@ -7,13 +7,13 @@
           <v-card>
             <v-container>
               <v-card-title class="headline"
-                >Dodaj novo kategorijo</v-card-title
+                >{{ $t('addDialog.title') }}</v-card-title
               >
               <form v-on:submit.prevent>
                 <v-text-field
                   v-model="category"
                   v-on:keyup.enter="saveCategory"
-                  label="Vnesi kategorijo"
+                  :label="$t('addDialog.fieldLabel')"
                   class="black--text"
                   outlined
                   required
@@ -27,10 +27,10 @@
                 color="red darken-1"
                 text
                 @click="addCategoryDialog = false"
-                >Prekliči</v-btn
+                >{{ $t('dialog.cancel') }}</v-btn
               >
               <v-btn color="green darken-1" text @click="saveCategory"
-                >Shrani</v-btn
+                >{{ $t('save') }}</v-btn
               >
             </v-card-actions>
           </v-card>
@@ -38,23 +38,21 @@
       </v-row>
     </div>
 
-    <!-- Show remove  category -->
+    <!-- Show remove category -->
     <div>
       <v-row justify="center">
         <v-dialog v-model="deletecategoryDialog" persistent max-width="290">
           <v-card>
             <v-container>
-              <v-card-title class="headline">Izbriši kategorijo</v-card-title>
+              <v-card-title class="headline">{{ $t('removeDialog.title') }}</v-card-title>
               <v-card-text>
-                Ponovno napiši ime kategorije za izbris ({{
-                  selectedCategory
-                }}).
+                {{ $t('removeDialog.rewriteMessage', { category: selectedCategory }) }}
               </v-card-text>
               <form v-on:submit.prevent>
                 <v-text-field
                   v-model="category"
                   v-on:keyup.enter="deleteCategory"
-                  label="Vnesi kategorijo"
+                  :label="$t('removeDialog.fieldLabel')"
                   class="black--text"
                   outlined
                   required
@@ -67,11 +65,11 @@
                 color="red darken-1"
                 text
                 @click="deletecategoryDialog = false"
-                >Prekliči</v-btn
+                >{{ $t('dialog.cancel') }}</v-btn
               >
               <div v-if="selectedCategory === category">
                 <v-btn color="green darken-1" text @click="deleteCategory"
-                  >Izbriši</v-btn
+                  >{{ $t('choose') }}</v-btn
                 >
               </div>
             </v-card-actions>
@@ -84,7 +82,7 @@
     <div>
       <v-card class="mx-auto">
         <v-card-title class="white--text secondary">
-          Kategorije pesmi
+          {{ $t('title') }}
           <v-spacer></v-spacer>
 
           <v-btn
@@ -99,7 +97,7 @@
         </v-card-title>
 
         <v-card-text class="pt-4"
-          >Spodaj so navedene vse kategorije pesmi</v-card-text
+          >{{ $t('subtitle') }}</v-card-text
         >
 
         <v-divider></v-divider>
@@ -132,6 +130,29 @@
     </div>
   </div>
 </template>
+
+<i18n>
+en:
+  title: "Categories"
+  subtitle: "All song categories are listed below"
+  addDialog:
+    title: "Add a new category"
+    fieldLabel: "Category name"
+  removeDialog:
+    title: "Delete category"
+    rewriteMessage: "Rewrite the category name to delete ({{ selectedCategory }})."
+    fieldLabel: "Category name"
+sl:
+  title: "Kategorije pesmi"
+  subtitle: "Spodaj so navedene vse kategorije pesmi"
+  addDialog:
+    title: "Dodaj novo kategorijo"
+    fieldLabel: "Vnesi kategorijo"
+  removeDialog:
+    title: "Izbriši kategorijo"
+    rewriteMessage: "Ponovno napiši ime kategorije za izbris ({{ selectedCategory }})."
+    fieldLabel: "Vnesi kategorijo"
+</i18n>
 
 <script>
 import { mapGetters } from 'vuex'
