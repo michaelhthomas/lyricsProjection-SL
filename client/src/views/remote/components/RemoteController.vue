@@ -15,7 +15,7 @@
         <v-row v-if="socketIndex !== -1">
           <v-col align="center">
             <v-chip class="ma-2" color="green" text-color="white">
-              Na zaslonu:
+              {{ $t('live') }}
               <v-avatar right class="green darken-4">{{
                 socketIndex
               }}</v-avatar>
@@ -28,7 +28,7 @@
           <v-col align="center" cols="8">
             <v-text-field
               v-model="userInput"
-              label="Vtipkaj številko"
+              :label="$t('numberLabel')"
               solo
               readonly
             ></v-text-field>
@@ -116,7 +116,7 @@
               @click="stopProjection"
               depressed
               color="error"
-              >Ustavi<v-icon>mdi-close</v-icon>
+              >{{ $t('stopProjection') }}<v-icon>mdi-close</v-icon>
             </v-btn>
           </v-col>
           </v-fade-transition>
@@ -125,7 +125,7 @@
               @click="onProject"
               depressed
               color="success"
-              >Projeciraj<v-icon>mdi-cast</v-icon>
+              >{{ $t('project') }}<v-icon>mdi-cast</v-icon>
             </v-btn>
           </v-col>
         </v-row>
@@ -133,6 +133,27 @@
     </v-row>
   </v-container>
 </template>
+
+<i18n>
+en:
+  live: "Currently live:"
+  numberLabel: "Enter number"
+  stopProjection: "Stop"
+  project: "Project"
+  error:
+    chooseType: "Choose the type of projection!"
+    noInput: "Enter the number!"
+    dne: "This song does not exist!"
+sl:
+  live: "Na zaslonu:"
+  numberLabel: "Vtipkaj številko"
+  stopProjection: "Ustavi"
+  project: "Projeciraj"
+  error:
+    chooseType: "Izberi vrsto projeciranja!"
+    noInput: "Vnesi številko!"
+    dne: "Ta pesem ne obstaja!"
+</i18n>
 
 <script>
 import { mapGetters } from 'vuex'
@@ -173,15 +194,15 @@ export default {
     },
     checkForUserErrors () {
       if (this.selected === '') {
-        this.errorMessage = 'Izberi vrsto projeciranja!'
+        this.errorMessage = this.$t('error.chooseType')
         this.alert = true
         return false
       } else if (this.userInput === '') {
-        this.errorMessage = 'Vnesi številko!'
+        this.errorMessage = this.$t('error.noInput')
         this.alert = true
         return false
       } else if (this.$store.getters['lyric/getLyricIdByNumber'](Number(this.userInput)) === -1) {
-        this.errorMessage = 'Ta pesem ne obstaja!'
+        this.errorMessage = this.$t('error.dne')
         this.alert = true
         return false
       } else {
