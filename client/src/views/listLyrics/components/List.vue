@@ -90,7 +90,7 @@
           <!-- Card header -->
           <v-card class="mx-auto">
             <v-card-title class="white--text secondary">
-              Seznam pesmi
+              {{ $t('list.title') }}
               <v-spacer></v-spacer>
               <v-btn
                 @click="goToAddLyric"
@@ -106,10 +106,10 @@
             <v-divider></v-divider>
 
             <v-card-text>
-              Išči, urejaj in projeciraj pesmi.
+              {{ $t('list.subtitle') }}
               <v-text-field
                 v-model="search"
-                label="Išči"
+                :label="$t('search')"
                 @click="page = 1"
                 append-icon="mdi-magnify"
               ></v-text-field>
@@ -152,7 +152,7 @@
         <v-col cols="12" sm="4">
           <v-card class="mx-auto">
             <v-card-title class="white--text secondary">
-              Izberi kategorijo
+              {{ $t('category.title') }}
               <v-spacer></v-spacer>
               <v-btn
                 :to="{ name: 'Options' }"
@@ -171,10 +171,10 @@
                   <v-select
                     v-model="selectedCategories"
                     :items="availableCategories"
-                    label="Izberi"
+                    :label="$t('choose')"
                     multiple
                     chips
-                    hint="možne kategorije"
+                    :hint="$t('category.hint')"
                     persistent-hint
                   ></v-select>
                 </v-col>
@@ -184,7 +184,7 @@
           <br />
           <v-card class="mx-auto">
             <v-card-title class="white--text secondary">
-              Natisni seznam pesmi
+              {{ $t('print.title') }}
               <v-spacer></v-spacer>
               <v-icon>mdi-printer</v-icon>
             </v-card-title>
@@ -192,7 +192,7 @@
             <v-container fluid>
               <v-row class="fill-height">
                 <v-col align="center" justify="center">
-                  <v-btn :to="{ name: 'Print' }">Natisni</v-btn>
+                  <v-btn :to="{ name: 'Print' }">{{ $t('print.print') }}</v-btn>
                 </v-col>
               </v-row>
             </v-container>
@@ -202,6 +202,29 @@
     </v-container>
   </div>
 </template>
+
+<i18n>
+en:
+  list:
+    title: "My Songs"
+    subtitle: "Search, edit and project songs."
+  category:
+    title: "Select a category"
+    hint: "Possible categories"
+  print:
+    title: "Print a playlist"
+    print: "Print"
+sl:
+  list:
+    title: "Seznam pesmi"
+    subtitle: "Išči, urejaj in projeciraj pesmi."
+  category:
+    title: "Izberi kategorijo"
+    hint: "možne kategorije"
+  print:
+    title: "Natisni seznam pesmi"
+    print: "Natisni"
+</i18n>
 
 <script>
 import { mapGetters } from 'vuex'
