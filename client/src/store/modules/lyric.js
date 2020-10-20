@@ -1,4 +1,5 @@
 import lyricsApi from '../../services/lyricsApi'
+import i18n from '../../i18n'
 
 export const namespaced = true
 
@@ -55,7 +56,7 @@ export const actions = {
       .then(response => {
         commit('add_new_lyric', lyric)
         const alert = {
-          message: 'Uspešno dodana pesem',
+          message: i18n.t('lyricsStore.addSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -63,7 +64,7 @@ export const actions = {
       })
       .catch(error => {
         const alert = {
-          message: 'Napaka pri shranjevanju nove pesmi!',
+          message: i18n.t('lyricsStore.addFail'),
           type: 'error'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -79,7 +80,7 @@ export const actions = {
       .then(response => {
         commit('add_new_category', category)
         const alert = {
-          message: 'Uspešno dodana nova kategorija',
+          message: i18n.t('lyricsStore.category.addSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -87,7 +88,7 @@ export const actions = {
       })
       .catch(error => {
         const alert = {
-          message: 'Napaka pri shranjevanju nove kategorije!',
+          message: i18n.t('lyricsStore.category.addFail'),
           type: 'error'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -135,7 +136,7 @@ export const actions = {
     const toDelete = state.lyrics.indexOf(foundLyric)
     if (toDelete === -1) {
       const alert = {
-        message: 'Napaka pri brisanju pesmi!',
+        message: i18n.t('lyricsStore.deleteFail'),
         type: 'error'
       }
       dispatch('appState/showAlert', alert, { root: true })
@@ -145,13 +146,13 @@ export const actions = {
       commit('delete_lyric', toDelete)
       if (response.status === 200) {
         const alert = {
-          message: 'Pesem uspešno izbrisana',
+          message: i18n.t('lyricsStore.deleteSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
       } else {
         const alert = {
-          message: 'Napaka pri brisanju pesmi!',
+          message: i18n.t('lyricsStore.deleteFail'),
           type: 'error'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -164,7 +165,7 @@ export const actions = {
     const toDelete = state.categories.lastIndexOf(category)
     if (toDelete === -1) {
       const alert = {
-        message: 'Napaka pri brisanju kategorije!',
+        message: i18n.t('lyricsStore.category.deleteFail'),
         type: 'error'
       }
       dispatch('appState/showAlert', alert, { root: true })
@@ -174,13 +175,13 @@ export const actions = {
       commit('delete_category', toDelete)
       if (response.status === 200) {
         const alert = {
-          message: 'Kategorija uspešno izbrisana',
+          message: i18n.t('lyricsStore.category.deleteSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })
       } else {
         const alert = {
-          message: 'Napaka pri brisanju kategorije iz baze!',
+          message: i18n.t('lyricsStore.category.deleteFailDB'),
           type: 'error'
         }
         dispatch('appState/showAlert', alert, { root: true })
@@ -195,7 +196,7 @@ export const actions = {
     const toUpdate = state.lyrics.indexOf(foundLyric)
     if (toUpdate === -1) {
       const alert = {
-        message: 'Napaka med posodabljanjem pesmi!',
+        message: i18n.t('lyricsStore.updateFail'),
         type: 'error'
       }
       dispatch('appState/showAlert', alert, { root: true })
@@ -208,7 +209,7 @@ export const actions = {
       })
       if (response.status === 200) {
         const alert = {
-          message: 'Pesem uspešno posodobljena',
+          message: i18n.t('lyricsStore.updateSuccess'),
           type: 'success'
         }
         dispatch('appState/showAlert', alert, { root: true })

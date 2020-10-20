@@ -17,6 +17,24 @@ save: "Save"
 rename: "Rename"
 choose: "Choose"
 
-playlist: 
-  addSuccessful: "New playlist successfully added"
-  addFailed: "Error saving playlist!"
+# Translations for Vuex Store error messages
+playlistStore: 
+  addSuccess: "New playlist successfully added"
+  addFail: "Error saving playlist!"
+  deleteSuccess: "Successfully deleted playlist"
+  deleteFail: "Error deleting list!"
+  updateSuccess: "List updated successfully"
+  updateFail: "Error updating list!"
+lyricsStore:
+  addSuccess: "Successfully added song"
+  addFail: "Error saving new song!"
+  deleteSuccess: "Song deleted successfully"
+  deleteFail: "Error deleting song!"
+  updateSuccess: "Song successfully updated"
+  updateFail: "Error updating song!"
+  category: 
+    addSuccess: "New category successfully added"
+    addFail: "Error saving new category!"
+    deleteSuccess: "Category successfully deleted"
+    deleteFail: "Error deleting category!"
+    deleteFailDB: "Error deleting category from database!"
